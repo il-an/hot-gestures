@@ -1,1 +1,2 @@
-import system_interaction
+from system_interaction import Interact
+
