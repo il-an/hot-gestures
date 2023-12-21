@@ -4,11 +4,13 @@ import mediapipe as mp
 
 lm = mp.solutions.hands.HandLandmark
 
+# constants
 X_ACCURACY = 0.15
 MIN_LENGTH = 0.2
 
 
 def single_finger_folded_straight(gesture, mcp, pip, dip, tip):
+    # check if finger is folded straight
     return (
             abs(gesture[mcp].x -
                 gesture[pip].x) < X_ACCURACY
@@ -17,12 +19,14 @@ def single_finger_folded_straight(gesture, mcp, pip, dip, tip):
 
 
 def single_finger_folded_side(gesture, pip, dip):
+    # check if finger is folded side
     return (
             abs(gesture[pip].x - gesture[dip].x) < X_ACCURACY
     )
 
 
 def four_fingers_folded(gesture):
+    # check if four fingers are folded
     return (
             single_finger_folded_straight(
                 gesture, lm.INDEX_FINGER_MCP, lm.INDEX_FINGER_PIP, lm.INDEX_FINGER_DIP, lm.INDEX_FINGER_TIP)
@@ -41,6 +45,7 @@ def four_fingers_folded(gesture):
 
 
 def three_fingers_folded_index_unfolded(gesture):
+    # check if three fingers are folded and index finger is unfolded
     index_finger = get_vector(
         gesture, lm.INDEX_FINGER_MCP, lm.INDEX_FINGER_DIP)
     return (

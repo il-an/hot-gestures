@@ -8,6 +8,7 @@ MIN_WIDTH = 0.15
 
 
 def gesture_quit(gesture, multi_handedness_label):
+    # check if gesture is quit
     finger1 = get_vector(gesture, lm.INDEX_FINGER_MCP, lm.INDEX_FINGER_TIP)
     finger2 = get_vector(gesture, lm.MIDDLE_FINGER_MCP, lm.MIDDLE_FINGER_TIP)
     finger3 = get_vector(gesture, lm.RING_FINGER_MCP, lm.RING_FINGER_TIP)

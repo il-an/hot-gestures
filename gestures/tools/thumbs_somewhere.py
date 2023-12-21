@@ -5,11 +5,13 @@ import mediapipe as mp
 
 lm = mp.solutions.hands.HandLandmark
 
+# constants
 MIN_WIDTH = 0.2
 MAX_FINGER_LENGTH = 0.15
 
 
 def is_thumbs_somewhere(gesture):
+    # check if thumbs are somewhere
     finger1 = get_vector(gesture, lm.INDEX_FINGER_PIP, lm.INDEX_FINGER_DIP)
     finger2 = get_vector(gesture, lm.MIDDLE_FINGER_PIP, lm.MIDDLE_FINGER_DIP)
     finger3 = get_vector(gesture, lm.RING_FINGER_PIP, lm.RING_FINGER_DIP)

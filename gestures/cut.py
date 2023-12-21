@@ -2,6 +2,7 @@ from gestures.tools.thumbs_somewhere import *
 
 
 def gesture_cut(gesture):
+    # check if gesture is cut
     finger1 = get_vector(gesture, lm.INDEX_FINGER_PIP, lm.INDEX_FINGER_DIP)
     finger2 = get_vector(gesture, lm.MIDDLE_FINGER_PIP, lm.MIDDLE_FINGER_DIP)
     finger3 = get_vector(gesture, lm.RING_FINGER_PIP, lm.RING_FINGER_DIP)
